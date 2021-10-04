@@ -58,7 +58,12 @@ function draw() {
           }
           else
           {
+            video.stop();
+            objectDetector.detect(gotResult);
             document.getElementById("object_status").innerHTML = object_name + " Not Found";
+            synth = window.speechSynthesis;
+            utterThis = new SpeechSynthesisUtterance(object_name + "Not Found");
+            synth.speak(utterThis);
           }          
          }
       }
